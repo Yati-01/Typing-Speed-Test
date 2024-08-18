@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+
+:root {
+    --bgcolor: rgb(27, 27, 121);
+    --textPrimary: #fff;
+    --Primarycolor: yellow;
+    --textSecondary: red;
+}
+
+body {
+    background-image: linear-gradient(var(--bgcolor) 40%, rgb(100, 57, 161));
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.box {
+    padding: 2rem;
+    background-color: var(--Primarycolor);
+    width: 80%;
+    height: auto;
+    /* height: 65%; */
+    border-radius: 2rem;
+    /* position: relative; */
+}
+
+.box .top {
+    width: 100%;
+    position: relative;
+    /* max-height: 80%; */
+}
+.title h2{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    
+}
+
+.top .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title .sound {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sound span {
+    margin-right: 15px;
+}
+
+hr {
+    margin: 1em;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+#Checkbox {
+    cursor: pointer;
+    border-radius: 2rem;
+    width: 65px;
+    height: 30px;
+    appearance: none;
+    background-color: rgba(187, 185, 185, 0.677);
+    position: relative;
+}
+
+#Checkbox::before {
+    position: absolute;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 100%;
+    transition: 0.4s;
+    left: 0;
+    box-shadow: 0 0 2px 2px rgb(201, 198, 198);
+}
+#Checkbox:checked::before{
+    left: 2.2rem;
+
+}
+
+#Checkbox:checked{
+    background-color:orange;
+}
+.content > input{
+    /* z-index: -99; */
+    position: absolute;
+    /* opacity: 0; */
+    z-index: 1;
+}
+
+.content p{
+    font-size: 1.5rem;
+    text-align: justify;
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+.bottom{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 3px 3px rgb(201, 198, 198);
+    border-radius: 0.5rem;
+}
+.bottom p{
+    font-size: 1.3rem;
+}
+.bottom button{
+    color: var(--textPrimary);
+    font-size: 1.3rem;
+    padding: 10px 25px;
+    background-image: linear-gradient(var(--bgcolor) 40%, rgb(100, 57, 161)); 
+     border-radius: 0.5em;
+    cursor: pointer;
+    transition-duration: 500ms;
+}
+.bottom button:hover{
+    transform: scale(1.2);
+}
+::selection{
+    color: var(--textPrimary);
+    background-color: coral;
+}
+/* .center_content {
+    max-width: 1200px;
+    border: 2px solid black;
+    margin: auto;
+    min-height: 80vh;
+}
+.content{
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    gap: 5rem;
+}
+
+.content >.start {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+,img img{
+    width: min(25rem, 90%);
+}
+.img{
+    display: flex;
+    place-items: center;
+    max-width: 800px;
+}  */
