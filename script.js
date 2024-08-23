@@ -4,8 +4,8 @@ let index = mistakes = isTyping = 0;
 let time;
 let time_left = document.querySelector('.time-left');
 let error = document.querySelector('.error');
-let cpm = document.querySelector('.cpm'); 
-let wpm = document.querySelector('.wpm'); 
+let cpm = document.querySelector('.cpm');
+let wpm = document.querySelector('.wpm');
 let maxTime = 60;
 let timeLeft = maxTime;
 let resetBtn = document.querySelector('.bottom button');
@@ -15,13 +15,14 @@ let correctType = new Audio('correct.mp3');
 let incorrectType = new Audio('incorrect.mp3');
 
 
-const playSound = () =>{
-        correctType.pause();
-        incorrectType.pause();
-    }
+const playSound = () => {
+    correctType.pause();
+    incorrectType.pause();
+}
 soundBtn.addEventListener('click', () => {
     playSound();
 });
+
 
 // Define LoadPara function
 const loadpara = () => {
@@ -32,10 +33,10 @@ const loadpara = () => {
         c.innerHTML += RealData;
     });
     c.querySelectorAll('span')[0].classList.add('active');
-    document.addEventListener('click', ()=>{
+    document.addEventListener('click', () => {
         input.focus();
     });
-    c.addEventListener('click', ()=>{
+    c.addEventListener('click', () => {
         input.focus();
     });
 }
@@ -43,18 +44,18 @@ loadpara();
 input.addEventListener('input', (e) => {
     let char = c.querySelectorAll('span');
     let inputValue = e.target.value.split('')[index];
-    if(!isTyping){
+    if (!isTyping) {
         time = setInterval(timeSetup, 1000);
         isTyping = true;
     }
-    if (index < char.length-1) {
+    if (index < char.length - 1) {
         if (inputValue == null) {
-            if(index > 0){
+            if (index > 0) {
                 index--;
-                if(char[index].classList.contains('incorrect')){
+                if (char[index].classList.contains('incorrect')) {
                     mistakes--;
                 }
-                char[index].classList.remove('correct','incorrect');
+                char[index].classList.remove('correct', 'incorrect');
             }
         } else {
             if (char[index].innerText == inputValue) {
@@ -62,14 +63,14 @@ input.addEventListener('input', (e) => {
                 correctType.play();
                 // playSound();
             } else {
-                char[index].classList.add('incorrect');     
-                mistakes++;      
-                incorrectType.play();  
+                char[index].classList.add('incorrect');
+                mistakes++;
+                incorrectType.play();
                 // playSound();
             }
         }
         index++;
-        char.forEach(element=>{
+        char.forEach(element => {
             element.classList.remove('active');
 
         });
@@ -83,19 +84,19 @@ input.addEventListener('input', (e) => {
 
     }
 });
-const timeSetup = () =>{
-    if(timeLeft > 0){
+const timeSetup = () => {
+    if (timeLeft > 0) {
         timeLeft--;
         time_left.innerText = `Time Left : ${timeLeft}s`;
-        let wpmTab = Math.round((index-mistakes) / 5 /(maxTime-timeLeft)*60);
+        let wpmTab = Math.round((index - mistakes) / 5 / (maxTime - timeLeft) * 60);
         wpm.innerText = `WPM : ${wpmTab}`;
-    }else{
+    } else {
         clearInterval(time);
         input.value = "";
     }
 };
 
-resetBtn.addEventListener('click',()=>{
+resetBtn.addEventListener('click', () => {
     loadpara();
     clearInterval(time);
     wpm.innerText = `WPM : 0`;
